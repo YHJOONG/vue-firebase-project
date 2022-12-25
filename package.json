@@ -2,6 +2,21 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "rules": {
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": 0,
+      "react/jsx-one-expression-per-line": 0,
+      "react/prop-types": 0
+    },
+    "env": {
+      "browser": true
+    }
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

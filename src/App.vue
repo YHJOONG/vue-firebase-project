@@ -6,7 +6,7 @@
       dark
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"/>
-      <v-toolbar-title>Page title</v-toolbar-title>
+      <site-title :title="title"/>
       <v-spacer></v-spacer>
       <v-btn icon to="/about">
         <v-icon>mdi-heart</v-icon>
@@ -16,34 +16,27 @@
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer app v-model="drawer">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Application
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            subtext
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+      <site-menu/>
     </v-navigation-drawer>
     <v-content>
       <router-view/>
     </v-content>
-    <v-footer app color="primary" dark absolute>
-      <v-spacer></v-spacer>
-      <div>&copy; {{new Date().getFullYear()}}</div>
-    </v-footer>
+    <SiteFooter :footer="footer"/>
   </v-app>
 </template>
 
 <script>
-
+import SiteTitle from '@/views/site/TitleView'
+import SiteFooter from '@/views/site/FooterView'
+import SiteMenu from '@/views/site/MenuView'
 export default {
+  components: { SiteTitle, SiteFooter, SiteMenu },
   name: 'App',
   data () {
     return {
-      drawer: false
+      drawer: false,
+      title: '나의 타이틀입니다.',
+      footer: '푸터입니다.'
     }
   }
 }
